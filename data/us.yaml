@@ -9,6 +9,9 @@ months:
     regions: [us]
     function: easter(year)-2
     type: informal
+  - name: Easter
+    regions: [us]
+    function: easter(year)
   1: 
   - name: New Year's Day
     regions: [us]
@@ -51,15 +54,27 @@ months:
     regions: [us]
     mday: 11
     observed: to_weekday_if_weekend
+  - name: Day Before Thanksgiving
+    week: 4
+    regions: [us]
+    wday: 3 
   - name: Thanksgiving
     week: 4
     regions: [us]
-    wday: 4
+    wday: 4   
   12: 
+  - name: Christmas Eve
+    regions: [us]
+    mday: 24
+    observed: to_weekday_if_weekend    
   - name: Christmas Day
     regions: [us]
     mday: 25
     observed: to_weekday_if_weekend
+  - name: New Years Eve
+    regions: [us]
+    mday: 24
+    observed: to_weekday_if_weekend      
 methods:
   us_inauguration_day: |
     # January 20, every fourth year, following Presidential election
@@ -70,12 +85,16 @@ tests: |
     {Date.civil(2008,1,1) => 'New Year\'s Day', 
      Date.civil(2008,1,21) => 'Martin Luther King, Jr. Day',
      Date.civil(2008,2,18) => 'Presidents\' Day',
+     Date.civil(2008,3,23) => 'Easter',
      Date.civil(2008,5,26) => 'Memorial Day',
      Date.civil(2008,7,4) => 'Independence Day',
      Date.civil(2008,9,1) => 'Labor Day',
      Date.civil(2008,10,13) => 'Columbus Day',
      Date.civil(2008,11,11) => 'Veterans Day',
+     Date.civil(2008,11,26) => 'Day Before Thanksgiving',
      Date.civil(2008,11,27) => 'Thanksgiving',
-     Date.civil(2008,12,25) => 'Christmas Day'}.each do |date, name|
+     Date.civil(2008,12,25) => 'Christmas Day',
+     Date.civil(2008,12,31) => 'New Years Eye',     
+     Date.civil(2008,12,24) => 'Christmas Eve'}.each do |date, name|
       assert_equal name, (Holidays.on(date, :us)[0] || {})[:name]
     end
