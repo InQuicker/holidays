@@ -47,10 +47,10 @@ end
  Date.civil(2008,9,1) => 'Labor Day',
  Date.civil(2008,10,13) => 'Columbus Day',
  Date.civil(2008,11,11) => 'Veterans Day',
- Date.civil(2008,11,26) => 'Day Before Thanksgiving',
+ Date.civil(2008,11,28) => 'Day After Thanksgiving',
  Date.civil(2008,11,27) => 'Thanksgiving',
  Date.civil(2008,12,25) => 'Christmas Day',
- Date.civil(2008,12,31) => 'New Years Eye',     
+ Date.civil(2008,12,31) => 'New Years Eve',     
  Date.civil(2008,12,24) => 'Christmas Eve'}.each do |date, name|
   assert_equal name, (Holidays.on(date, :us)[0] || {})[:name]
 end
