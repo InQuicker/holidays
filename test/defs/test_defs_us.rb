@@ -7,7 +7,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/../test_helper'
 class UsDefinitionTests < Test::Unit::TestCase  # :nodoc:
 
   def test_us
-{Date.civil(2008,1,1) => 'New Year\'s Day', 
+{Date.civil(2008,1,1) => 'New Year\'s Day',
  Date.civil(2008,1,21) => 'Martin Luther King, Jr. Day',
  Date.civil(2008,2,18) => 'Presidents\' Day',
  Date.civil(2008,3,23) => 'Easter',
@@ -19,7 +19,7 @@ class UsDefinitionTests < Test::Unit::TestCase  # :nodoc:
  Date.civil(2008,11,28) => 'Day After Thanksgiving',
  Date.civil(2008,11,27) => 'Thanksgiving',
  Date.civil(2008,12,25) => 'Christmas Day',
- Date.civil(2008,12,31) => 'New Years Eve',     
+ Date.civil(2008,12,31) => 'New Years Eve',
  Date.civil(2008,12,24) => 'Christmas Eve'}.each do |date, name|
   assert_equal name, (Holidays.on(date, :us)[0] || {})[:name]
 end
