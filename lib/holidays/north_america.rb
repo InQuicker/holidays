@@ -73,7 +73,7 @@ module Holidays
             {:mday => 2, :type => :informal, :name => "Los Fieles Difuntos", :regions => [:mx]},
             {:wday => 1, :week => 3, :name => "Día de la Revolución", :regions => [:mx]},
             {:mday => 11, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Veterans Day", :regions => [:us]},
-            {:wday => 5, :week => 4, :name => "Day After Thanksgiving", :regions => [:us]},
+            {:function => lambda { |year| Holidays.day_after_thanksgiving(year) }, :function_id => "day_after_thanksgiving(year)", :name => "Day after Thanksgiving", :regions => [:us]},
             {:wday => 4, :week => 4, :name => "Thanksgiving", :regions => [:us]}],
       12 => [{:mday => 25, :name => "Christmas Day", :regions => [:ca]},
             {:mday => 26, :name => "Boxing Day", :regions => [:ca]},
@@ -106,6 +106,11 @@ end
 # January 20, every fourth year, following Presidential election
 def self.us_inauguration_day(year)
   year % 4 == 1 ? 20 : nil
+end
+
+
+def self.day_after_thanksgiving(year)
+  Date.civil(year,11,Date.calculate_mday(year,11,:fourth,:thursday)+1)
 end
 
 
