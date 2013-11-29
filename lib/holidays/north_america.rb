@@ -73,7 +73,7 @@ module Holidays
             {:mday => 2, :type => :informal, :name => "Los Fieles Difuntos", :regions => [:mx]},
             {:wday => 1, :week => 3, :name => "Día de la Revolución", :regions => [:mx]},
             {:mday => 11, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Veterans Day", :regions => [:us]},
-            {:function => lambda { |year| Holidays.day_after_thanksgiving(year) }, :function_id => "day_after_thanksgiving(year)", :name => "Day after Thanksgiving", :regions => [:us]},
+            {:function => lambda { |year| Holidays.day_after_thanksgiving(year) }, :function_id => "day_after_thanksgiving(year)", :name => "Day After Thanksgiving", :regions => [:us]},
             {:wday => 4, :week => 4, :name => "Thanksgiving", :regions => [:us]}],
       12 => [{:mday => 25, :name => "Christmas Day", :regions => [:ca]},
             {:mday => 26, :name => "Boxing Day", :regions => [:ca]},

@@ -53,7 +53,7 @@ months:
     regions: [us]
     mday: 11
     observed: to_weekday_if_weekend
-  - name: Day after Thanksgiving
+  - name: Day After Thanksgiving
     function: day_after_thanksgiving(year)
     regions: [us]
   - name: Thanksgiving
